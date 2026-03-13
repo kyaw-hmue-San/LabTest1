@@ -34,7 +34,7 @@ function getTodayDateText() {
   return new Date().toISOString().slice(0, 10);
 }
 
-export default function HistoryScreen() {
+export default function HistoryScreen({ navigation }) {
   const [sessions, setSessions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [activeFilter, setActiveFilter] = useState('all');
@@ -91,6 +91,10 @@ export default function HistoryScreen() {
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right', 'bottom']}>
       <View style={styles.container}>
+        <TouchableOpacity style={styles.backBtn} onPress={() => navigation.navigate('Home')}>
+          <Text style={styles.backBtnText}>Back to Home</Text>
+        </TouchableOpacity>
+
         <View style={styles.filterRow}>
           {FILTERS.map((filter) => (
             <TouchableOpacity
@@ -145,6 +149,17 @@ export default function HistoryScreen() {
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: '#F3F4F6' },
   container: { flex: 1, padding: 16 },
+  backBtn: {
+    alignSelf: 'flex-start',
+    borderWidth: 1,
+    borderColor: '#2563EB',
+    borderRadius: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: '#FFFFFF',
+    marginBottom: 12,
+  },
+  backBtnText: { color: '#1D4ED8', fontWeight: '700' },
   filterRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
