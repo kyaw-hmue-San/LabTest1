@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Class Check-in</title>
+  <style>
+    :root {
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #dbe3ef;
+      --white: #ffffff;
+      --bg1: #f8fafc;
+      --bg2: #e0f2fe;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: radial-gradient(circle at top left, var(--bg2), var(--bg1) 45%, #ffffff);
+      color: var(--ink);
+    }
+    .container {
+      width: min(940px, 94vw);
+      margin: 30px auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+    .hero {
+      background: linear-gradient(120deg, #0f172a, #1e3a8a 55%, #0f766e);
+      color: #f8fafc;
+      padding: 28px;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 30px;
+      letter-spacing: 0.2px;
+    }
+    .hero p {
+      margin-top: 10px;
+      color: #e2e8f0;
+      line-height: 1.5;
+      max-width: 720px;
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .badge {
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+    .section {
+      padding: 22px 28px;
+      border-top: 1px solid var(--line);
+    }
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 19px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      background: #fff;
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 15px;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    ul {
+      margin: 8px 0 0 18px;
+      color: var(--muted);
+    }
+    code {
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 6px;
+      color: #0f172a;
+    }
+    .footer {
+      padding: 18px 28px 24px;
+      border-top: 1px solid var(--line);
+      color: #64748b;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <h1>Smart Class Check-in & Learning Reflection</h1>
+      <p>
+        Midterm MVP project built with React Native (Expo), including complete pre-class check-in and
+        post-class reflection with QR and geolocation evidence.
+      </p>
+      <div class="badges">
+        <span class="badge">React Native + Expo</span>
+        <span class="badge">QR + GPS Validation</span>
+        <span class="badge">SQLite (native)</span>
+        <span class="badge">localStorage (web)</span>
+        <span class="badge">Firebase Hosting</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Core Deliverables</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Pre-Class Check-in</h3>
+          <p>Collects student ID, name, mood, class QR code, and current location before class starts.</p>
+        </article>
+        <article class="card">
+          <h3>Post-Class Reflection</h3>
+          <p>Requires the same QR code and records reflection summary plus confidence rating.</p>
+        </article>
+        <article class="card">
+          <h3>Integrity Rules</h3>
+          <p>One check-in per day, QR matching between flows, and device-bound student ID lock.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Submission Notes</h2>
+      <ul>
+        <li>PRD: <code>PRD.md</code></li>
+        <li>AI report: <code>AI_USAGE.md</code></li>
+        <li>Setup and deployment guide: <code>README.md</code></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Hosting Note</h2>
+      <p style="color: var(--muted); margin: 0; line-height: 1.5;">
+        This page is served from <code>hosting/</code>. To deploy Expo web output directly, run
+        <code>npx expo export -p web</code> and host the generated <code>dist/</code> folder.
+      </p>
+    </section>
+
+    <div class="footer">Prepared for Midterm Lab Test (13-Mar-2026).</div>
+  </main>
+</body>
+</html>
