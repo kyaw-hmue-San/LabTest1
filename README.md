@@ -18,6 +18,7 @@ Data is persisted locally using SQLite on native and localStorage fallback on we
 
 - Home screen with quick actions
 - History screen with filters (All, Today, Completed, Checked-in)
+  - Includes a visible Back to Home button inside the screen
 - Check-in screen
   - Student ID and class code
   - Previous topic and expected topic input
@@ -52,7 +53,9 @@ Data is persisted locally using SQLite on native and localStorage fallback on we
 - `src/screens/CheckInScreen.js`
 - `src/screens/FinishClassScreen.js`
 - `src/screens/HistoryScreen.js`
-- `hosting/index.html`
+- `firebase.json`
+- `.firebaserc`
+- `dist/` (Expo web export output used for Firebase Hosting)
 
 ## Setup Instructions
 
@@ -100,27 +103,29 @@ npx expo start --web
 
 ## Firebase Hosting Deployment (React Native/Expo)
 
-Fastest exam-safe option is deploying the static landing page from `hosting/`.
+Deploy the Expo web build from `dist/` (this is the current live setup).
 
 Use this sequence after Firebase CLI is available:
 
 ```bash
-firebase login
-firebase init hosting
-```
-
-When prompted during `firebase init hosting`:
-
-- Select your Firebase project
-- Set public directory to: `hosting`
-- Configure as single-page app: `Yes`
-- Overwrite `index.html`: `No`
-
-Deploy:
-
-```bash
+npx expo export --platform web --output-dir dist
 firebase deploy --only hosting
 ```
+
+Current `firebase.json` already points Hosting public directory to `dist`.
+
+If you run commands in Windows PowerShell with restricted execution policy, use:
+
+```bash
+firebase.cmd deploy --only hosting
+```
+
+One-time init reference (already completed in this project):
+
+- Select your Firebase project
+- Set public directory to: `dist`
+- Configure as single-page app: `Yes`
+- Overwrite `index.html`: `No`
 
 Final deployment URL:
 
@@ -130,7 +135,7 @@ Final deployment URL:
 
 - A Firebase project is required for Hosting deployment.
 - This MVP stores app records locally in SQLite.
-- Optional enhancement: deploy Expo web output or sync to Firestore.
+- Optional enhancement: sync records to Firestore.
 
 ## Known Limitations
 
