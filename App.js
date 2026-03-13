@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { Text, TouchableOpacity } from 'react-native';
+import { Platform, Text, TouchableOpacity } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import HomeScreen from './src/screens/HomeScreen';
 import CheckInScreen from './src/screens/CheckInScreen';
@@ -29,7 +29,10 @@ export default function App() {
             component={HomeScreen}
             options={({ navigation }) => ({
               headerRight: () => (
-                <TouchableOpacity onPress={() => navigation.navigate('History')}>
+                <TouchableOpacity
+                  style={{ marginRight: Platform.OS === 'web' ? 8 : 2, paddingHorizontal: 4 }}
+                  onPress={() => navigation.navigate('History')}
+                >
                   <Text style={{ color: '#2563EB', fontWeight: '700' }}>History</Text>
                 </TouchableOpacity>
               ),
