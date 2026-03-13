@@ -9,7 +9,7 @@
 - Initial architecture for React Native (Expo) screens and navigation
 - SQLite schema and helper method structure (`expo-sqlite`)
 - QR scan and GPS capture flow scaffolding (`expo-camera`, `expo-location`)
-- README and deployment checklist draft
+- README updates and Firebase Hosting deployment/config guidance
 
 ## What I Modified/Implemented Manually
 
