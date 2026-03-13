@@ -124,7 +124,7 @@ firebase deploy --only hosting
 
 Final deployment URL:
 
-`<PASTE_FIREBASE_URL_HERE>`
+`https://labtest-1-s1-401.web.app`
 
 ## Firebase Configuration Notes
 
